@@ -3,7 +3,7 @@ import sys
 
 class MainUI():
     def setupUi(self, MainWindow):
-        self.tail = ""
+        self.tail = "0"
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(321, 390)
         MainWindow.setMinimumSize(QtCore.QSize(321, 399))
@@ -203,19 +203,24 @@ class MainUI():
             self.tail = self.tail + "9"
         self.lineEdit.setText(self.tail)
     def plus(self):
-        self.tail = self.tail + "+"
+        if self.tail != "0":
+            self.tail = self.tail + "+"
         self.lineEdit.setText(self.tail)
     def minus(self):
-        self.tail = self.tail + "-"
+        if self.tail != "0":
+            self.tail = self.tail + "-"
         self.lineEdit.setText(self.tail)
     def divide(self):
-        self.tail = self.tail + "/"
+        if self.tail != "0":
+            self.tail = self.tail + "/"
         self.lineEdit.setText(self.tail)
     def multiply(self):
-        self.tail = self.tail + "x"
+        if self.tail != "0":
+            self.tail = self.tail + "x"
         self.lineEdit.setText(self.tail)
     def fpoint(self):
-        self.tail = self.tail + "."
+        if self.tail != "0":
+            self.tail = self.tail + "."
         self.lineEdit.setText(self.tail)
     def calculate(self):
         rawstring = self.tail
