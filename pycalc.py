@@ -6,6 +6,8 @@ class MainUI():
         self.tail = ""
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(321, 390)
+        MainWindow.setMinimumSize(QtCore.QSize(321, 399))
+        MainWindow.setMaximumSize(QtCore.QSize(321, 399))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -82,6 +84,7 @@ class MainUI():
         font.setPointSize(20)
         self.lineEdit.setFont(font)
         self.lineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.lineEdit.setMaxLength(9)
         self.lineEdit.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton_18 = QtWidgets.QPushButton(self.centralwidget)
@@ -136,7 +139,7 @@ class MainUI():
         self.pushButton_15.setText(_translate("MainWindow", "="))
         self.pushButton_16.setText(_translate("MainWindow", "."))
         self.pushButton_17.setText(_translate("MainWindow", "+/-"))
-        self.lineEdit.setText(_translate("MainWindow", "3.1415"))
+        self.lineEdit.setText(_translate("MainWindow", "0"))
         self.pushButton_18.setText(_translate("MainWindow", "CE"))
 
     def zero(self):
@@ -185,11 +188,13 @@ class MainUI():
         self.tail = self.tail + "."
         self.lineEdit.setText(self.tail)
     def calculate(self):
-        eq = eval(self.tail)
+        rawstring = self.tail
+        propstring = rawstring.replace("x","*")
+        eq = eval(propstring)
         self.lineEdit.setText(str(eq))
         self.tail = self.lineEdit.text()
     def clearall(self):
-        self.tail = ""
+        self.tail = "0"
         self.lineEdit.setText(self.tail)
 
 if __name__ == "__main__":
