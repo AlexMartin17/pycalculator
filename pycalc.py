@@ -227,7 +227,7 @@ class MainUI():
         propstring = rawstring.replace("x","*")
         eq = eval(propstring)
         self.lineEdit.setText(str(eq))
-        self.tail = ""
+        self.tail = str(eq)
     def clearall(self):
         self.tail = "0"
         self.lineEdit.setText(self.tail)
