@@ -143,34 +143,64 @@ class MainUI():
         self.pushButton_18.setText(_translate("MainWindow", "CE"))
 
     def zero(self):
-        self.tail = self.tail + "0"
+        if self.tail == "0":
+            self.tail = "0"
+        else:
+            self.tail = self.tail + "0"
         self.lineEdit.setText(self.tail)
     def one(self):
-        self.tail = self.tail + "1"
+        if self.tail == "0":
+            self.tail = "1"
+        else:
+            self.tail = self.tail + "1"
         self.lineEdit.setText(self.tail)
     def two(self):
-        self.tail = self.tail + "2"
+        if self.tail == "0":
+            self.tail = "2"
+        else:
+            self.tail = self.tail + "2"
         self.lineEdit.setText(self.tail)
     def three(self):
-        self.tail = self.tail + "3"
+        if self.tail == "0":
+            self.tail = "3"
+        else:
+            self.tail = self.tail + "3"
         self.lineEdit.setText(self.tail)
     def four(self):
-        self.tail = self.tail + "4"
+        if self.tail == "0":
+            self.tail = "4"
+        else:
+            self.tail = self.tail + "4"
         self.lineEdit.setText(self.tail)
     def five(self):
-        self.tail = self.tail + "5"
+        if self.tail == "0":
+            self.tail = "5"
+        else:
+            self.tail = self.tail + "5"
         self.lineEdit.setText(self.tail)
     def six(self):
-        self.tail = self.tail + "6"
+        if self.tail == "0":
+            self.tail = "6"
+        else:
+            self.tail = self.tail + "6"
         self.lineEdit.setText(self.tail)
     def seven(self):
-        self.tail = self.tail + "7"
+        if self.tail == "0":
+            self.tail = "7"
+        else:
+            self.tail = self.tail + "7"
         self.lineEdit.setText(self.tail)
     def eight(self):
-        self.tail = self.tail + "8"
+        if self.tail == "0":
+            self.tail = "8"
+        else:
+            self.tail = self.tail + "8"
         self.lineEdit.setText(self.tail)
     def nine(self):
-        self.tail = self.tail + "9"
+        if self.tail == "0":
+            self.tail = "9"
+        else:
+            self.tail = self.tail + "9"
         self.lineEdit.setText(self.tail)
     def plus(self):
         self.tail = self.tail + "+"
@@ -192,7 +222,7 @@ class MainUI():
         propstring = rawstring.replace("x","*")
         eq = eval(propstring)
         self.lineEdit.setText(str(eq))
-        self.tail = self.lineEdit.text()
+        self.tail = ""
     def clearall(self):
         self.tail = "0"
         self.lineEdit.setText(self.tail)
