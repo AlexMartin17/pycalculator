@@ -7,4 +7,4 @@ Tested on Windows 7/10
 
 pip3 install pyqt5<br>
 
-<img src="https://raw.githubusercontent.com/AlexMartin17/pycalculator/master/img/sample1.png">
+<img src="https://raw.githubusercontent.com/AlexMartin17/pycalculator/master/img/sample1.PNG">
