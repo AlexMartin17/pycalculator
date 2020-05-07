@@ -203,24 +203,27 @@ class MainUI():
             self.tail = self.tail + "9"
         self.lineEdit.setText(self.tail)
     def plus(self):
-        if self.tail != "0":
+        if self.tail != "0" and "+" not in self.tail:
             self.tail = self.tail + "+"
         self.lineEdit.setText(self.tail)
     def minus(self):
-        if self.tail != "0":
+        if self.tail != "0" and "-" not in self.tail:
             self.tail = self.tail + "-"
         self.lineEdit.setText(self.tail)
     def divide(self):
-        if self.tail != "0":
+        if self.tail != "0" and "/" not in self.tail:
             self.tail = self.tail + "/"
         self.lineEdit.setText(self.tail)
     def multiply(self):
-        if self.tail != "0":
-            self.tail = self.tail + "x"
+        if self.tail != "0" and "*" not in self.tail:
+            self.tail = self.tail + "*"
         self.lineEdit.setText(self.tail)
     def fpoint(self):
-        if self.tail != "0":
-            self.tail = self.tail + "."
+        if ".." in self.tail:
+            rawstring = self.tail
+            propstring = rawstring.replace("..",".")
+            self.lineEdit.setText(propstring)
+        self.tail = self.tail + "."
         self.lineEdit.setText(self.tail)
     def calculate(self):
         rawstring = self.tail
