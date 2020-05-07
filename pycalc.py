@@ -115,7 +115,7 @@ class MainUI():
         self.pushButton_14.clicked.connect(self.plus)
         self.pushButton_15.clicked.connect(self.calculate)
         self.pushButton_16.clicked.connect(self.fpoint)
-
+        self.pushButton_17.clicked.connect(self.chsign)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -234,6 +234,11 @@ class MainUI():
     def clearall(self):
         self.tail = "0"
         self.lineEdit.setText(self.tail)
+    def chsign(self):
+        char = self.tail
+        char = eval(char) - 2 * eval(char)
+        self.tail = str(char)
+        self.lineEdit.setText(str(self.tail))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
