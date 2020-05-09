@@ -85,6 +85,7 @@ class MainUI():
         self.lineEdit.setFont(font)
         self.lineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.lineEdit.setMaxLength(9)
+        self.lineEdit.setReadOnly(True)
         self.lineEdit.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton_18 = QtWidgets.QPushButton(self.centralwidget)
