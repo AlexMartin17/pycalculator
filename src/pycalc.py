@@ -85,6 +85,7 @@ class MainUI():
         self.lineEdit.setFont(font)
         self.lineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.lineEdit.setMaxLength(9)
+        self.lineEdit.setReadOnly(True)
         self.lineEdit.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton_18 = QtWidgets.QPushButton(self.centralwidget)
@@ -115,7 +116,7 @@ class MainUI():
         self.pushButton_14.clicked.connect(self.plus)
         self.pushButton_15.clicked.connect(self.calculate)
         self.pushButton_16.clicked.connect(self.fpoint)
-
+        self.pushButton_17.clicked.connect(self.chsign)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -203,24 +204,27 @@ class MainUI():
             self.tail = self.tail + "9"
         self.lineEdit.setText(self.tail)
     def plus(self):
-        if self.tail != "0":
+        if self.tail != "0" and "+" not in self.tail:
             self.tail = self.tail + "+"
         self.lineEdit.setText(self.tail)
     def minus(self):
-        if self.tail != "0":
+        if self.tail != "0" and "-" not in self.tail:
             self.tail = self.tail + "-"
         self.lineEdit.setText(self.tail)
     def divide(self):
-        if self.tail != "0":
+        if self.tail != "0" and "/" not in self.tail:
             self.tail = self.tail + "/"
         self.lineEdit.setText(self.tail)
     def multiply(self):
-        if self.tail != "0":
-            self.tail = self.tail + "x"
+        if self.tail != "0" and "*" not in self.tail:
+            self.tail = self.tail + "*"
         self.lineEdit.setText(self.tail)
     def fpoint(self):
-        if self.tail != "0":
-            self.tail = self.tail + "."
+        if ".." in self.tail:
+            rawstring = self.tail
+            propstring = rawstring.replace("..",".")
+            self.lineEdit.setText(propstring)
+        self.tail = self.tail + "."
         self.lineEdit.setText(self.tail)
     def calculate(self):
         rawstring = self.tail
@@ -231,6 +235,11 @@ class MainUI():
     def clearall(self):
         self.tail = "0"
         self.lineEdit.setText(self.tail)
+    def chsign(self):
+        char = self.tail
+        char = eval(char) - 2 * eval(char)
+        self.tail = str(char)
+        self.lineEdit.setText(str(self.tail))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
